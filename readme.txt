@@ -1,0 +1,1 @@
+Here for phase 2, newly implemented 3 features are Flight Details, Map, About us. And previous implemented 2 features are the Home page with its layout and login page.

@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}Book Flight{% endblock %}
+{% block body %}
+<div class="p-3 mb-2 bg-info text-white">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <form role="form" action="{% url 'book_flight' pk=flight_no %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                          <fieldset>
+                            <legend>Enter your details</legend>
+                            <div class="form-group">
+                              <label for="Name1">First Name</label>
+                              <input type="text" class="form-control" id="Name1" name="first_name" placeholder="Enter first name">
+                            </div>
+                            <div class="form-group">
+                              <label for="Name2">Last Name</label>
+                              <input type="text" class="form-control" id="Name2" name="last_name" placeholder="Enter last name">
+                            </div>
+                            <div class="form-group">
+                              <label for="gender">Gender &nbsp &nbsp</label>
+                              <input type="radio"  id="Name2" name="gender" value="Male" checked> Male
+                              <input type="radio"  id="Name2" name="gender" value="Female"> Female
+                            </div>
+                            <div class="form-group">
+                              <label for="dob">Date of Birth</label>
+                              <input type="date" class="form-control" id="Name2" name="dob" placeholder="Enter Date of Birth">
+                            </div>
+                            <div class="form-group">
+                              <label for="nationality">Nationality</label>
+                              <input type="text" class="form-control" id="nationality" name="nationality" placeholder="Enter nationality">
+                            </div>
+                            <div class="form-group">
+                              <label for="Name2">Enter Mobile No.</label>
+                              <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile No.">
+                            </div>
+                            <div class="form-group">
+                              <label for="Name2">Enter Address.</label>
+                              <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address.">
+                            </div>
+                            <div class="form-group">
+                              <label for="Name2">Enter Passport No for International Flight.</label>
+                              <input type="text" class="form-control" id="passport_no" name="passport_no" placeholder="Enter Passport No.">
+                            </div>
+                            <div class="form-group">
+                              <label for="ticket_class">Ticket Class &nbsp &nbsp &nbsp</label>
+                              <input type="radio"  id="ticket_class" name="ticket_class" value="Economy Class" checked> Economy Class (price- $600)
+                              <input type="radio"  id="ticket_class" name="ticket_class" value="First Class"> Business Class (price- $3900)
+                              <input type="radio"  id="ticket_class" name="ticket_class" value="Business Class"> First Class (price- $3500)
+                            </div>
+                            <div class="form-group">
+                              <label for="seats">Enter How many Seats</label>
+                              <input type="number" class="form-control" id="seats" name="seats" placeholder="Enter seats">
+                            </div>
+                            <h4 class="mb-3">Payment</h4>
+
+          <div class="my-3">
+           <input type="radio"  id="pay_option" name="pay_option" value="Credit Card" checked> Credit Card
+           <input type="radio"  id="pay_option" name="pay_option" value="Debit Card"> Debit Card
+           <input type="radio"  id="pay_option" name="pay_option" value="Paypal"> Paypal
+          </div>
+
+          <div class="row gy-3">
+            <div class="col-md-6">
+             <label for="name_card">Enter Card Full Name</label>
+             <input type="text" class="form-control" id="name_card" name="name_card" placeholder="Enter name">
+            </div>
+            
+
+            <div class="col-md-6">
+             <label for="card_no">Enter Card No.</label>
+             <input type="number" class="form-control" id="card_no" name="card_no" placeholder="Enter card No.">
+            </div>
+
+            <div class="col-md-3">
+              <label for="expiration" class="form-label">Expiration</label>
+              <input type="date" class="form-control" id="expiration" name="expiration" placeholder="Enter expiration date">
+            </div>
+
+            <div class="col-md-3">
+              <label for="card_no">Enter cvv No.</label>
+             <input type="number" class="form-control" id="cvv" name="cvv" placeholder="Enter cvv No.">
+            </div>
+          </div>
+                             <button type="submit" class="btn btn-warning my-4" href="/ticket">Click to submit</button>
+                             
+                          </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

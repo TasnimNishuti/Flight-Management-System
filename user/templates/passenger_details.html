@@ -1,0 +1,39 @@
+{% extends 'base2.html' %}
+{% block title %}Services{% endblock %}
+{% block body %}
+<div class="container">
+        <div class="row">
+            <div class="offset-sm-3">
+              {% for i in passenger %}
+    <div class="card border-primary mb-3" style="max-width: 20rem;">
+      <div class="card-header">Passenger PNR: {{ i.pnr }}</div>
+          <div class="card-body">
+            <h6 class="card-title"><b>Name:</b> {{ i.first_name }} {{ i.last_name }}</h6>
+              <h6><b>Date of Birth:</b> {{ i.dob }}</h6>
+              <h6><b>Nationality:</b> {{ i.nationality}}</h6>
+              <h6><b>Gender:</b> {{ i.gender}}</h6>
+              <h6><b>Mobile No.:</b> {{ i.mobile}}</h6>
+              <h6><b>Flight No:</b> {{ i.flight_no.flight_id }}</h6>
+              <h6><b>Airline:</b> {{ i.flight_no.airline_name }}</h6>
+              <h6><b>Departure:</b> {{ i.flight_no.departure_time }}</h6>
+              <h6><b>Arrival:</b> {{ i.flight_no.arrival_time }}</h6>
+              <h6><b>From:</b> {{ i.flight_no.source }}</h6>
+              <h6><b>To:</b> {{ i.flight_no.destination }}</h6>
+              <h6><b>Ticket Fare:</b> {{ i.amount }}</h6>
+          </div>
+    </div>
+    {% endfor %}
+    <!-- <li class="list-group-item"> <strong>{{complain.name}}</strong>  stated that, <strong>'{{complain.desc}}'</strong>  -->
+      
+  {% comment %} </li> {% endcomment %}
+       {% comment %} {% if passenger.checked_in_status == False %}
+      <a href="{% url 'self_check_in' passenger.pk %}" class="btn btn-outline-success" role="button">Perform Self Check-In</a>
+    {% else %}
+      <a href="#" class="btn btn-outline-success disabled" role="button">Checked In</a>
+    {% endif %}    {% endcomment %}
+
+  {% comment %} <a href="{% url 'create_pdf' passenger.pk %}" class="btn btn-outline-success" role="button">Download Ticket</a> {% endcomment %}
+  </div>
+</div>
+</div>
+{% endblock %}

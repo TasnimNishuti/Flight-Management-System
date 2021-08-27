@@ -1,0 +1,21 @@
+<tbody>
+     {% for flight in flights %}
+     <tr>
+      <td>{{ flight.flight_no}}</td>
+      <td>{{ flight.airline_name}}</td>
+      <td>{{ flight.no_of_seats }}</td>
+      <td>({{ flight.source_code}}) {{ flight.source}}</td>
+      <td>({{ flight.destination_code}}) {{ flight.destination}}</td>
+      <td>{{ flight.departure_time}}</td>
+      <td>{{ flight.arrival_time}}</td>
+      <td>
+        {% if flight.no_of_seats > 0 %}
+            <a href="{% url 'book_flight' flight.pk%}" class="btn btn-outline-success" role="button">Book Now!</a>
+        {% else %}
+            <button type="button" class="btn btn-success disabled">Book Now!</button>	    
+        {% endif %}
+      </td>
+    </tr>
+     
+     {% endfor %}
+   </tbody> 
